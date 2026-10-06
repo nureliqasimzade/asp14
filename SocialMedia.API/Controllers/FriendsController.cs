@@ -665,9 +665,7 @@ namespace SocialMedia.API.Controllers
                 });
             }
 
-            friendship.IsDeleted = true;
-            friendship.UpdatedAt =
-                DateTime.UtcNow;
+            _dbContext.Friendships.Remove(friendship);
 
             await _dbContext
                 .SaveChangesAsync(
